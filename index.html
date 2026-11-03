@@ -52,6 +52,8 @@
   .quote { font-size: 15px; }
   .quote::before { content: "\201C"; display: block; color: var(--accent); font-size: 32px; line-height: 1; margin-bottom: 4px; }
   .pending { border: 1px dashed var(--line); border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+  .pending p { margin: 0 0 6px; }
+  .pending ul { margin: 0; padding-left: 18px; }
 
   /* v1 flow */
   .step-num { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -113,7 +115,14 @@
       <div class="tile quote">Many postings say "new grads ok", but not whether they really mean it.</div>
       <div class="tile quote">I found the founders' LinkedIn and stopped there. I didn't know how to reach out, and my background isn't in their field.</div>
     </div>
-    <p class="pending">Not done yet: interviews with three classmates. I'll talk to three UChicago students looking at startups before the project starts on November 10, and add what they said here, in their words.</p>
+    <div class="pending">
+      <p>Not done yet: interviews with three classmates, before the project starts on November 10. I'll add what they said here, in their words.</p>
+      <ul>
+        <li>A MACSS student with an economics background, looking for internships at US AI startups</li>
+        <li>An MPCS student who has done hackathons and wants to start a company after graduating</li>
+        <li>A MACSS student interested in startups who hasn't contacted any yet</li>
+      </ul>
+    </div>
   </div>
 </section>
 

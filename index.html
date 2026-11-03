@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foothold · Project Proposal</title>
+<style>
+  :root {
+    --ink: #1c1b19;
+    --muted: #6b675f;
+    --faint: #9a958b;
+    --line: #e4e0d8;
+    --bg: #faf8f4;
+    --card: #ffffff;
+    --accent: #b4532a;
+    --accent-soft: #f6e7df;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 960px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  /* Hero */
+  .eyebrow { color: var(--muted); font-size: 14px; margin: 0; }
+  h1 { font-size: 48px; line-height: 1.1; margin: 8px 0 16px; letter-spacing: -.01em; }
+  .lede { font-size: 22px; line-height: 1.45; max-width: 760px; margin: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: 14px; }
+  .fact b { color: var(--accent); font-weight: 600; }
+
+  /* Section grid: label on the left, content on the right */
+  section { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 40px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { margin-top: 48px; }
+  .label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .label span { display: block; color: var(--faint); font-size: 28px; letter-spacing: 0; font-weight: 500; margin-bottom: 4px; }
+  h2 { font-size: 22px; line-height: 1.3; margin: 0 0 16px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); font-size: 14px; }
+
+  .grid { display: grid; gap: 12px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .tile h3 { font-size: 15px; margin: 0 0 4px; }
+  .tile p { color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* Users */
+  .quote { font-size: 15px; }
+  .quote::before { content: "\201C"; display: block; color: var(--accent); font-size: 32px; line-height: 1; margin-bottom: 4px; }
+  .pending { border: 1px dashed var(--line); border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+  /* v1 flow */
+  .step-num { color: var(--accent); font-weight: 600; font-size: 13px; }
+  .result { margin-top: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .result-head { background: var(--accent-soft); padding: 10px 16px; font-size: 14px; font-weight: 600; }
+  .result-row { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--line); font-size: 14px; }
+  .result-row b { font-weight: 600; }
+  .result-row span { color: var(--muted); }
+
+  /* Evals */
+  .metric { font-size: 32px; font-weight: 600; color: var(--accent); line-height: 1.1; margin-bottom: 6px; }
+
+  /* Roadmap timeline */
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .week { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--line); border-radius: 10px; padding: 16px; }
+  .week.milestone { border-top-color: var(--accent); }
+  .week .when { font-size: 13px; color: var(--muted); }
+  .week h3 { font-size: 16px; margin: 2px 0 8px; }
+  .week ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+
+  .closing { background: var(--ink); color: var(--bg); border-radius: 12px; padding: 24px; }
+  .closing p { margin: 0; font-size: 17px; }
+
+  @media (max-width: 760px) {
+    main { padding: 40px 16px 64px; }
+    h1 { font-size: 36px; }
+    .lede { font-size: 19px; }
+    section { grid-template-columns: 1fr; gap: 12px; }
+    .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
+    .result-row { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <p class="eyebrow">Design, Build, Ship · Project Proposal · Jessie Chen</p>
+  <h1>Foothold</h1>
+  <p class="lede">
+    For students curious about startups whose background isn't a direct match:
+    an AI agent that finds startups that fit you, checks whether they really hire new grads,
+    and shows you a way in, based on your own resume.
+  </p>
+  <div class="facts">
+    <div class="fact">Focus <b>AI</b></div>
+    <div class="fact">v1 <b>Nov 17</b></div>
+    <div class="fact">v2 <b>Dec 1, project fair</b></div>
+  </div>
+</header>
+
+<section>
+  <div class="label"><span>01</span>Users</div>
+  <div>
+    <h2>Students curious about startups whose background isn't the obvious match, starting with economics and social science students at UChicago.</h2>
+    <p>I'm the first user. I found YC and got lost in too many companies:</p>
+    <div class="grid grid-3">
+      <div class="tile quote">Researching one company took 20 to 30 minutes.</div>
+      <div class="tile quote">Many postings say "new grads ok", but not whether they really mean it.</div>
+      <div class="tile quote">I found the founders' LinkedIn and stopped there. I didn't know how to reach out, and my background isn't in their field.</div>
+    </div>
+    <p class="pending">Not done yet: interviews with three classmates. I'll talk to three UChicago students looking at startups before the project starts on November 10, and add what they said here, in their words.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span>02</span>What v1 does</div>
+  <div>
+    <h2>Upload your resume once. Get 10 startups that fit, each judged.</h2>
+    <div class="grid grid-3">
+      <div class="tile"><div class="step-num">Step 1</div><h3>Sign up</h3><p>Upload your resume, pick a few interests</p></div>
+      <div class="tile"><div class="step-num">Step 2</div><h3>Agent searches</h3><p>YC companies and Hacker News "Who is hiring"</p></div>
+      <div class="tile"><div class="step-num">Step 3</div><h3>10 cards</h3><p>Ranked by fit, saved to your list</p></div>
+    </div>
+    <div class="result">
+      <div class="result-head">What each card shows</div>
+      <div class="result-row"><b>What they do</b><span>In plain words, tags explained</span></div>
+      <div class="result-row"><b>New grads?</b><span>Yes / maybe / no, quoting the posting</span></div>
+      <div class="result-row"><b>Your way in</b><span>Quoting a line from your resume and a fact about the company</span></div>
+      <div class="result-row"><b>Who to contact</b><span>The founders, from public YC pages</span></div>
+    </div>
+    <p class="muted" style="margin-top:12px">Not in v1: other platforms, LinkedIn scraping, sending messages for you.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span>03</span>Focus: AI</div>
+  <div>
+    <h2>The hard part is judgment, not search.</h2>
+    <p>Does this company really hire new grads, and how does my background fit? The app calls a model with tools to search and read postings, and three evals check how well it judges. I chose AI because I want to work on AI products, and building an agent I can measure is the skill I most want to practice.</p>
+    <div class="grid grid-3">
+      <div class="tile"><div class="metric">80%+</div><p>New-grad judgment matches my labels on 40 postings</p></div>
+      <div class="tile"><div class="metric">100%</div><p>Every quote exists in the posting or resume, so no made-up experience</p></div>
+      <div class="tile"><div class="metric">90%+</div><p>Same company merged correctly across sources</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span>04</span>Roadmap</div>
+  <div>
+    <h2>Riskiest part first: the agent's judgment.</h2>
+    <div class="timeline">
+      <div class="week milestone">
+        <div class="when">Nov 10–17</div><h3>v1</h3>
+        <ul><li>Agent judgment and evals</li><li>Sign-up and resume profile</li><li>YC and HN data</li></ul>
+      </div>
+      <div class="week">
+        <div class="when">Nov 17–24</div><h3>Real users</h3>
+        <ul><li>Merge companies across sources</li><li>5 classmates try it</li></ul>
+      </div>
+      <div class="week milestone">
+        <div class="when">Nov 24–Dec 1</div><h3>v2 at the fair</h3>
+        <ul><li>Product Hunt and other accelerators</li><li>Drafted first message</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span>05</span>Stack</div>
+  <div>
+    <h2>Built on what I used in Assignments 2 to 5.</h2>
+    <div class="grid grid-2">
+      <div class="tile"><h3>Next.js · Vercel · Clerk</h3><p>Each profile and saved list belongs to one account</p></div>
+      <div class="tile"><h3>Supabase + Cron worker</h3><p>Stores companies and judgments; the Assignment 5 worker pulls new data</p></div>
+      <div class="tile"><h3>Gemini API, free tier</h3><p>Company facts are judged once and shared; only "your way in" is per person</p></div>
+      <div class="tile"><h3>MCP and CLIs</h3><p>Supabase MCP lets my coding agent check tables and worker logs while I build. Supabase, Clerk, Vercel, and GitHub CLIs for migrations, setup, deploys, and the repo</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span>06</span>Ambition</div>
+  <div class="closing">
+    <p>Every platform where startups show up, in one place. Students use it free; startups pay for candidates who come with an honest, quoted reason why they fit.</p>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
